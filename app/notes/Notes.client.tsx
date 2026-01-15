@@ -16,7 +16,7 @@ const PER_PAGE = 12;
 interface NotesClientProps {
   dehydratedState?: DehydratedState;
   initialNotes?: FetchNotesResponse['notes'];
-  tag?: string; 
+  tag?: string;
 }
 
 export default function NotesClient({ dehydratedState, initialNotes = [], tag }: NotesClientProps) {
