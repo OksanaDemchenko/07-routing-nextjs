@@ -5,7 +5,7 @@ import css from './NoteList.module.css';
 
 interface NoteListProps {
   notes: Note[];
-  onViewDetails: (id: string) => void;
+  onViewDetails?: (id: string) => void;
 }
 
 export default function NoteList({ notes, onViewDetails }: NoteListProps) {
@@ -30,7 +30,7 @@ export default function NoteList({ notes, onViewDetails }: NoteListProps) {
 
             <button
               className={css.link} 
-              onClick={() => onViewDetails(note.id)}
+              onClick={() => onViewDetails?.(note.id)}
             >
               View details
             </button>
