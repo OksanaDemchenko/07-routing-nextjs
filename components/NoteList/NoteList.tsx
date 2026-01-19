@@ -1,14 +1,19 @@
+'use client';
+
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import Link from 'next/link';
 import type { Note } from '../../types/note';
 import { deleteNote } from '@/lib/api';
 import css from './NoteList.module.css';
 
 interface NoteListProps {
   notes: Note[];
-  onViewDetails?: (id: string) => void;
+ 
 }
 
-export default function NoteList({ notes, onViewDetails }: NoteListProps) {
+
+
+export default function NoteList({ notes }: NoteListProps) {
   const queryClient = useQueryClient();
 
   const deleteMutation = useMutation<Note, Error, string>({
@@ -28,17 +33,15 @@ export default function NoteList({ notes, onViewDetails }: NoteListProps) {
           <div className={css.footer}>
             <span className={css.tag}>{note.tag}</span>
 
-            <button
-              className={css.link} 
-              onClick={() => onViewDetails?.(note.id)}
-            >
-              View details
-            </button>
+            <Link href={`/notes/${note.id}`} className={css.link}>
+  View details
+</Link>
+
 
             <button
               className={css.button}
               onClick={() => deleteMutation.mutate(note.id)}
-              disabled={deleteMutation.status === 'pending'}
+              disabled={deleteMutation.isPending}
             >
               Delete
             </button>

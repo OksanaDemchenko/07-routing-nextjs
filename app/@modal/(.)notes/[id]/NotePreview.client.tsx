@@ -1,9 +1,25 @@
 'use client';
 
-type Props = {
+import { useRouter } from 'next/navigation';
+import Modal from '@/components/Modal/Modal';
+
+type Note = {
   id: string;
+  title: string;
+  content: string;
 };
 
-export default function NotePreviewClient({ id }: Props) {
-  return <p>Note preview: {id}</p>;
+type Props = {
+  note: Note;
+};
+
+export default function NoteModalClient({ note }: Props) {
+  const router = useRouter();
+
+  return (
+    <Modal onClose={() => router.push('/notes')}>
+      <h2>{note.title}</h2>
+      <p>{note.content}</p>
+    </Modal>
+  );
 }
