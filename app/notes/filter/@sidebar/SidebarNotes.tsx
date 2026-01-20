@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import css from './SidebarNotes.module.css';
 
-const tags = ['work', 'personal', 'Ideas', 'Todo'];
+const tags = ['work', 'personal'];
 
 export default function SidebarNotes() {
   return (
@@ -13,13 +13,15 @@ export default function SidebarNotes() {
           All notes
         </Link>
       </li>
-      {tags.map(tag => (
-        <li key={tag} className={css.menuItem}>
-          <Link href={`/notes/filter/${tag}`} className={css.menuLink}>
-            {tag}
-          </Link>
-        </li>
-      ))}
+     {tags.map(tag => (
+  <li key={tag}>
+    <Link href={`/notes/filter/${tag}`}>
+      {tag.charAt(0).toUpperCase() + tag.slice(1)}
+    </Link>
+  </li>
+))}
+
+     
     </ul>
   );
 }
