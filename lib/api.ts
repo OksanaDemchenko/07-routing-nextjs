@@ -18,6 +18,7 @@ api.interceptors.request.use(config => {
   return config;
 });
 
+
 export interface FetchNotesParams {
   page: number;
   perPage: number;

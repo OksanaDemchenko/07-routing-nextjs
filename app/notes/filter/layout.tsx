@@ -6,6 +6,9 @@ export default function FilterLayout({
   sidebar: React.ReactNode;
 }) {
   return (
-  <>{sidebar}{children}</>
+    <div>
+      <aside>{sidebar}</aside>
+      <main>{children}</main>
+    </div>
   );
 }

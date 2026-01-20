@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import css from './SidebarNotes.module.css';
 
-const tags = ['Work', 'Personal', 'Ideas', 'Todo'];
+const tags = ['work', 'personal', 'Ideas', 'Todo'];
 
 export default function SidebarNotes() {
   return (
