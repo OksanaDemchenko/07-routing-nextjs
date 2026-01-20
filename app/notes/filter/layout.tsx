@@ -1,11 +1,11 @@
-export default function NotesFilterLayout({
+export default function FilterLayout({
   children,
-  modal,
+  sidebar,
 }: {
   children: React.ReactNode;
-  modal?: React.ReactNode;
+  sidebar: React.ReactNode;
 }) {
-    return <> {children} {modal} </>;
-
-
+  return (
+  <>{sidebar}{children}</>
+  );
 }

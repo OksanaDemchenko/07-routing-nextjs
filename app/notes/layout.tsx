@@ -1,13 +1,7 @@
-export default function NotesFilterLayout({
+export default function NotesLayout({
   children,
 }: {
   children: React.ReactNode;
-  
 }) {
-  return (
-    <>
-      {children}
-    
-    </>
-  );
+  return <>{children}</>;
 }

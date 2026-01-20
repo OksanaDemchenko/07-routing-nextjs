@@ -36,7 +36,8 @@ export default function NotesClient({
       fetchNotes({
         page,
         perPage: PER_PAGE,
-        search: tag ?? debouncedSearch ?? undefined,
+        tag,
+        search: debouncedSearch,
       }),
     placeholderData: {
       notes: initialNotes,
