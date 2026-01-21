@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+const TAGS = ['Work', 'Personal', 'Todo', 'Meeting', 'Shopping'];
+
 export default function SidebarDefault() {
   return (
     <nav>
@@ -7,14 +9,13 @@ export default function SidebarDefault() {
         <li>
           <Link href="/notes/filter/all">All</Link>
         </li>
-        <li>
-          <Link href="/notes/filter/work">Work</Link>
-        </li>
-        <li>
-          <Link href="/notes/filter/personal">Personal</Link>
-        </li>
+
+        {TAGS.map(tag => (
+          <li key={tag}>
+            <Link href={`/notes/filter/${tag}`}>{tag}</Link>
+          </li>
+        ))}
       </ul>
     </nav>
-
   );
 }

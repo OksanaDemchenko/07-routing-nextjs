@@ -27,6 +27,7 @@ export default function NoteModalClient({ id }: Props) {
   } = useQuery<Note>({
     queryKey: ['note', id],
     queryFn: () => fetchNoteById(id),
+    refetchOnMount: false, 
   });
 
   if (isLoading) {

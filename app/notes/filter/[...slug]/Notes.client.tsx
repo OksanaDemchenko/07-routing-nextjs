@@ -17,14 +17,10 @@ import css from './NotesPage.module.css';
 const PER_PAGE = 12;
 
 interface NotesClientProps {
-  initialNotes?: FetchNotesResponse['notes'];
   tag?: string;
 }
 
-export default function NotesClient({
-  initialNotes = [],
-  tag,
-}: NotesClientProps) {
+export default function NotesClient({ tag }: NotesClientProps) {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
   const [debouncedSearch] = useDebounce(search, 500);
@@ -37,12 +33,8 @@ export default function NotesClient({
         page,
         perPage: PER_PAGE,
         tag,
-        search: debouncedSearch,
+        search: debouncedSearch || undefined,
       }),
-    placeholderData: {
-      notes: initialNotes,
-      totalPages: 1,
-    },
   });
 
   const notes = data?.notes ?? [];
